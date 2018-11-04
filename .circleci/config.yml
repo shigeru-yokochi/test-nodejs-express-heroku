@@ -7,8 +7,6 @@ jobs:
 
     steps:
       - checkout
-      - restore_cache:
-          key: projectname-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: System information
           command: |
@@ -17,17 +15,6 @@ jobs:
       - run:
           name: Install dependencies
           command: yarn
-      - run:
-          name: Build
-          command: yarn run build
-      - run:
-          name: Test
-          command: yarn test
-      - save_cache:
-          key: projectname-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/workspace/node_modules
-            - ~/.cache/yarn/
       - deploy:
           name: Deploy Master to Heroku
           command: |
