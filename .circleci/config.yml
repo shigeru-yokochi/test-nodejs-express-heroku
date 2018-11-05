@@ -1,22 +1,24 @@
-﻿version: 2
+version: 2
 jobs:
-  deploy:
+  build:
+    working_directory: /app/user
     docker:
-      - image: node:6.10.0
+      - image: atsnngs/heroku-nodejs-ci:latest
     steps:
       - checkout
+      - restore_cache:
+          key: node_modules-{{ .Branch }}-{{ checksum "package.json" }}
       - run:
-          name: git init
-          command: git init
+          command: npm install
+      - save_cache:
+          key: node_modules-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run:
-          name: heroku deploy
+          command: npm test
+      - run:
           command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - deploy:
-          filters:
-            branches:
-              only: master
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./.circleci/setup-heroku.sh
+              git push heroku HEAD:master
+            fi
