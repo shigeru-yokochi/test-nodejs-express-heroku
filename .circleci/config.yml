@@ -19,6 +19,8 @@ jobs:
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              pwd
+              ls -l
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
               git push heroku master
