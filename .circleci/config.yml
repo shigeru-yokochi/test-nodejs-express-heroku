@@ -20,11 +20,9 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               pwd
-              git init
               ls -al
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
-              git fetch
-              git merge origin/master
+              git pull origin master
               git push heroku master
             fi
