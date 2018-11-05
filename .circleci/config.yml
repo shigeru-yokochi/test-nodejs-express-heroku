@@ -20,6 +20,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               pwd
+              git init
               ls -l
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
