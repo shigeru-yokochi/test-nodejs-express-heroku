@@ -21,8 +21,9 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               pwd
               git init
-              ls -l
+              ls -al
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
+              git fetch
               git push heroku master
             fi
