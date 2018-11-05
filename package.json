@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "install "; "--save-dev jest",
+    "install": "--save-dev jest",
     "test": "jest"
     
   },
