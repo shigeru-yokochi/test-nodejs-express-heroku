@@ -1,6 +1,6 @@
 {
   "name": "express-sample",
-  "version": "0.0.",
+  "version": "0.0.0",
    "engines": {
     "node": "10.3.0"
   },
