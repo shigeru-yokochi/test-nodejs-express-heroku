@@ -23,6 +23,6 @@ jobs:
               ls -al
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
-              git pull origin master
+              git pull heroku master
               git push heroku master
             fi
