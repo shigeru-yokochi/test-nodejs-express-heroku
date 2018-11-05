@@ -25,5 +25,6 @@ jobs:
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
               git fetch
+              git merge origin/master
               git push heroku master
             fi
