@@ -12,7 +12,6 @@
   },
   "jest": {
     "verbose": true
-    }
   },
   "dependencies": {
     "body-parser": "~1.12.0",
