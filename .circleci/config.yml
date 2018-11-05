@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: /app/user
     docker:
-      - image: atsnngs/heroku-nodejs-ci:latest
+      - image: node:9.4.0
     steps:
       - checkout
       - restore_cache:
