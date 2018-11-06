@@ -15,9 +15,9 @@ jobs:
           paths:
             - node_modules
       - run:
-          command: npm install --save-dev jest
-      - run:
           command: npm install express-session
+      - run:
+          command: npm install --save-dev jest
       - run:
           command: npm test
       - run:
