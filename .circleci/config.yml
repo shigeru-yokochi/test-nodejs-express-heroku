@@ -17,6 +17,8 @@ jobs:
       - run:
           command: npm install --save-dev jest
       - run:
+          command: npm install express-session
+      - run:
           command: npm test
       - run:
           command: |
