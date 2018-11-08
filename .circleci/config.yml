@@ -24,10 +24,5 @@ jobs:
                chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
               echo --- git push
-              git init
-              git config --global user.email "shigeru@yokochi.jp"
-              git config --global user.name "shigeru yokochi"
-              git add . 
-              git commit -m "first commit"            
               git push heroku master
             fi
