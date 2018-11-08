@@ -15,7 +15,7 @@ jobs:
           paths:
             - node_modules
       - run:
-          command: npm install express-session
+          command: npm install express-session co thunkify
       - run:
           command: npm install --save-dev jest
       - run:
