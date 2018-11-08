@@ -24,5 +24,6 @@ jobs:
                chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
               echo --- git push
+              git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
               git push heroku master
             fi
