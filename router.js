@@ -44,6 +44,8 @@ var commit = function (data, callback) {
   const URL = "mongodb://localhost:27017/test";
  
   return co(function* () {
+    // MongoDB へ 接続
+    logger.info('--- MongoDB connect');
     var db = yield MongoClient.connect(URL);
     var collection = db.collection("shops");
     var result = yield collection.updateOne(
@@ -51,6 +53,7 @@ var commit = function (data, callback) {
       { $set: data },
       { upsert: true },
       (error, result) => {
+        // MongoDB 切断
         db.close();
         callback && callback();
       });
