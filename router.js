@@ -60,7 +60,7 @@ var commit = function (data, callback) {
 
 
 
- var aws = require('aws-sdk');
+ var AWS = require('aws-sdk');
  var dynamodb = new AWS.DynamoDB({region: 'ap-northeast-1'});
  var params = {
   Limit: 100
