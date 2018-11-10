@@ -47,7 +47,6 @@ var commit = function (data, callback) {
     // MongoDB へ 接続
     var db = yield MongoClient.connect(URL);
     var collection = db.collection("shops");
-    process.stdout.write('--- MongoDB connext\n');
     var result = yield collection.updateOne(
       { name: { $eq: data.name } },
       { $set: data },
