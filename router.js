@@ -58,9 +58,12 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
-  var aws = require('aws-sdk');
-var docClient = new aws.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
+      process.stdout.write('--- 1\n');
 
+ var aws = require('aws-sdk');
+ process.stdout.write('--- 2\n');
+var docClient = new aws.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
+process.stdout.write('--- 3\n');
 exports.handler = function (event, context) {
   var params = {
     TableName : 'test',
@@ -69,6 +72,7 @@ exports.handler = function (event, context) {
     }
   };
 
+  process.stdout.write('--- 4\n');
    docClient.get(params, function(err, data) {
         if (err){
             console.log(err);
@@ -80,7 +84,7 @@ exports.handler = function (event, context) {
     });
   };  
 
-
+  process.stdout.write('--- 5\n');
 
 
 
