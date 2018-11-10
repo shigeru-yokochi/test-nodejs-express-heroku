@@ -124,7 +124,7 @@ router.get("/", function (request, response) {
 
 
 /**
- * GET: /shop/regist/input
+ * GET: /regist/input
  */
 router.get("/regist/input", function (request, response) {
   // 新規に 秘密文字 と トークン を生成
@@ -138,11 +138,11 @@ router.get("/regist/input", function (request, response) {
   response.cookie("_csrf", token);
  
   // 入力画面の表示
-  response.render("./shop/regist/input.ejs");
+  response.render("./regist/input.ejs");
 });
  
 /**
- * POST: /shop/regist/input
+ * POST: /regist/input
  */
 router.post("/regist/input", function (request, response) {
   // 入力データを取得
@@ -155,11 +155,11 @@ router.post("/regist/input", function (request, response) {
   process.stdout.write('--- test 123\n');
 
   // 入力画面の再表示
-  response.render("./shop/regist/input.ejs", data);
+  response.render("./regist/input.ejs", data);
 });
  
 /**
- * POST: /shop/regist/confirm
+ * POST: /regist/confirm
  */
 router.post("/regist/confirm", function (request, response) {
   // 入力データを取得
@@ -167,14 +167,14 @@ router.post("/regist/confirm", function (request, response) {
  
   // 入力データの検証
   if (validate(data) === false) {
-    return response.render("./shop/regist/input.ejs", data);
+    return response.render("./regist/input.ejs", data);
   }
  
-  response.render("./shop/regist/confirm.ejs", data);
+  response.render("./regist/confirm.ejs", data);
 });
  
 /**
- * POST: /shop/regist/complete
+ * POST: /regist/complete
  */
 router.post("/regist/complete", function (request, response) {
   // 秘密文字 と トークン を取得
@@ -189,7 +189,7 @@ router.post("/regist/complete", function (request, response) {
   var data = extract(request);
   // 入力データの検証
   if (validate(data) === false) {
-    return response.render("./shop/regist/input.ejs", data);
+    return response.render("./regist/input.ejs", data);
   }
 
   // 登録処理
@@ -200,16 +200,16 @@ router.post("/regist/complete", function (request, response) {
     response.clearCookie("_csrf");
 
     // 完了画面へリダイレクト
-    response.redirect("/shop/regist/complete");
+    response.redirect("/regist/complete");
   });
 
 });
  
 /**
- * GET: /shop/regist/complete
+ * GET: /regist/complete
  */
 router.get("/regist/complete", function (request, response) {
-  response.render("./shop/regist/complete.ejs");
+  response.render("./regist/complete.ejs");
 });
  
 module.exports = router;
