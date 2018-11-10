@@ -61,28 +61,22 @@ var commit = function (data, callback) {
 
 
  var aws = require('aws-sdk');
- process.stdout.write('--- 2\n');
-var docClient = new aws.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
-process.stdout.write('--- 3\n');
-exports.handler = function (event, context) {
-  var params = {
-    TableName : 'test',
-    Key: {
-        'key': '1'
-    }
-  };
+ var dynamodb = new AWS.DynamoDB({region: 'ap-northeast-1'});
+ var params = {
+  Limit: 100
+};
+process.stdout.write('--- 1\n');
 
-  process.stdout.write('--- 4\n');
-   docClient.get(params, function(err, data) {
-        if (err){
-            console.log(err);
-            context.succeed();
-        } else {
-            console.log(data);
-            context.succeed();
-        }
-    });
-  };  
+
+dynamodb.listTables(params, function(err, data) {
+  if (err) {
+      console.log(err, err.stack); 
+  } else {
+      console.log(data);
+  }
+});
+
+ process.stdout.write('--- 2\n');
 
 
 //  var fs = require('fs-extra')
