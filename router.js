@@ -70,14 +70,18 @@ process.stdout.write('--- 1\n');
 
 dynamodb.listTables(params, function(err, data) {
   if (err) {
-      console.log(err, err.stack); 
+      process.stdout.write('--- err\n');
+          console.log(err, err.stack); 
   } else {
+    process.stdout.write('--- OK\n'); 
       console.log(data);
   }
 });
 
  process.stdout.write('--- 2\n');
-
+ console.log('--- 22\n');
+ console.log(data);
+ console.log('--- 23\n');
 
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
