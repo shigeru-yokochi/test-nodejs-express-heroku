@@ -61,7 +61,7 @@ var commit = function (data, callback) {
   var AWS = require('aws-sdk');
   AWS.config.update({region: 'ap-northeast-1'});
   var dy = new AWS.DynamoDB();
-  var param = {TableName:'twitter'};
+  var param = {TableName:'test'};
   dy.client.describeTable(param).done(function(resp){
     console.log(resp.data);
   });
@@ -89,6 +89,7 @@ var commit = function (data, callback) {
 //  }).catch((reason) => {
 //    console.error(JSON.stringify(reason));
 //  });
+
 };
  
 /**
