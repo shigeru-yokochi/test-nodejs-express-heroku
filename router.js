@@ -119,11 +119,13 @@ router.post("/regist/complete", function (request, response) {
   var secret = request.session._csrf;
   var token = request.cookies._csrf;
  
+  process.stdout.write('--- test 1\n');
   // 秘密文字 と トークン の組み合わせが正しいか検証
   if (tokens.verify(secret, token) === false) {
     throw new Error("Invalid Token");
   }
- 
+
+  process.stdout.write('--- test 2\n');
   // 入力データを取得
   var data = extract(request);
  
@@ -132,12 +134,17 @@ router.post("/regist/complete", function (request, response) {
     return response.render("./shop/regist/input.ejs", data);
   }
  
+
+
+  process.stdout.write('--- test 3\n');
+
   // 登録処理
   commit(data).then(() => {
     // 使用済み 秘密文字 と トークン の無効化
     delete request.session._csrf;
     response.clearCookie("_csrf");
- 
+    process.stdout.write('--- test 4\n');
+
     // 完了画面へリダイレクト
     response.redirect("/shop/regist/complete");
   });
