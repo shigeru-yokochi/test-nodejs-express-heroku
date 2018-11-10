@@ -89,7 +89,7 @@ exports.handler = function (event, context) {
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
 
-/*
+
   const URL = "mongodb://localhost:27017/test";
   return co(function* () {
     // MongoDB へ 接続
@@ -107,7 +107,6 @@ exports.handler = function (event, context) {
   }).catch((reason) => {
     console.error(JSON.stringify(reason));
   });
-*/
 
 
 };
