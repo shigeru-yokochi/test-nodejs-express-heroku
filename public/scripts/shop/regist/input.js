@@ -2,7 +2,7 @@
     // 「保存」ボタン押下時に呼び出されます。
     var btnSave_onclick = function (event) {
       var $form = $("#form");
-      $form.attr("action", "/shop/regist/confirm");
+      $form.attr("action", "/shop/regist/confirm3333");
       $form.submit();
     };
    
