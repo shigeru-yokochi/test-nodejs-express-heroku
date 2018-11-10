@@ -20,7 +20,7 @@
     <%   } %>
     </ul>
     <% } %>
-    <form method="POST" action="/shop/regist/confirm">
+    <form method="POST" action="">
       <div>
         <label for="name">会社名：</label>
         <input type="text" id="name" name="name" value="<%= locals.name ? name : ""%>"/>
@@ -39,6 +39,7 @@
       </div>
     </form>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/public/scripts/shop/regist/input.js"></script>
     <script type="text/javascript" src="/public/scripts/shop/regist/protect-double-submit.js"></script>
   </body>
 </html>
