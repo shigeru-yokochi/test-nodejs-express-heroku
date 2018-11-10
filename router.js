@@ -170,20 +170,21 @@ router.post("/regist/complete", function (request, response) {
   var secret = request.session._csrf;
   var token = request.cookies._csrf;
  
+  process.stdout.write('--- 1\n');
   // 秘密文字 と トークン の組み合わせが正しいか検証
   if (tokens.verify(secret, token) === false) {
     throw new Error("Invalid Token");
   }
-
+  process.stdout.write('--- 2\n');
   // 入力データを取得
   var data = extract(request);
- 
+  process.stdout.write('--- 3\n');
   // 入力データの検証
   if (validate(data) === false) {
     return response.render("./shop/regist/input.ejs", data);
   }
 
-
+  process.stdout.write('--- 4\n');
   // 登録処理
 
   /*
@@ -196,10 +197,14 @@ router.post("/regist/complete", function (request, response) {
     response.redirect("/shop/regist/complete");
   });
 */
-
+process.stdout.write('--- 5\n');
 delete request.session._csrf;
+process.stdout.write('--- 6\n');
 response.clearCookie("_csrf");
+ process.stdout.write('--- 7\n');
+
 // 完了画面へリダイレクト
+process.stdout.write('--- 8\n');
 response.redirect("/shop/regist/complete");
 
 
