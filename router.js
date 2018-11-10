@@ -47,6 +47,7 @@ var commit = function (data, callback) {
     // MongoDB へ 接続
     var db = yield MongoClient.connect(URL);
     var collection = db.collection("shops");
+    process.stdout.write('--- MongoDB connext\n');
     var result = yield collection.updateOne(
       { name: { $eq: data.name } },
       { $set: data },
@@ -90,8 +91,7 @@ router.post("/regist/input", function (request, response) {
     name: "12345"
   }
 
-  process.stdout.write('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-
+  process.stdout.write('--- test 123\n');
 
   // 入力画面の再表示
   response.render("./shop/regist/input.ejs", data);
