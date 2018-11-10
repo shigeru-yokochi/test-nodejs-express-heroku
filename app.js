@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
 var shop = require('./router');
-var input = require('./router/regist/input');
+var input = require('./router/shop/regist/input');
 
 var app = express();
 
