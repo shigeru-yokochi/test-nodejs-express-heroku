@@ -41,7 +41,7 @@ var validate = function (data) {
  * リクエストデータを登録
  */
 var commit = function (data, callback) {
-  const URL = "mongodb://localhost:27017/test";
+  const URL = "mongodb://127.0.0.1:27017/test";
 
   process.stdout.write('--- test 4\n');
   return co(function* () {
