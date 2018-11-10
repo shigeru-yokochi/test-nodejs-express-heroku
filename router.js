@@ -87,6 +87,10 @@ router.post("/regist/input", function (request, response) {
   // 入力データを取得
   var data = extract(request);
  
+  data = {
+    name: "12345"
+  }
+
   // 入力画面の再表示
   response.render("./shop/regist/input.ejs", data);
 });
