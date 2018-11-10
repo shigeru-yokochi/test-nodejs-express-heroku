@@ -2,14 +2,14 @@
     // 「保存」ボタン押下時に呼び出されます。
     var btnSave_onclick = function (event) {
       var $form = $("#form");
-      $form.attr("action", "/shop/regist/confirm");
+      $form.attr("action", "/regist/confirm");
       $form.submit();
     };
    
     // 「読み出し」ボタン押下時に呼び出されます。
     var btnRead_onclick = function (event) {
       var $form = $("#form");
-      $form.attr("action", "/shop/regist/input");
+      $form.attr("action", "/regist/input");
       $form.submit();
     };
    
