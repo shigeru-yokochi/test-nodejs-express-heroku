@@ -94,24 +94,24 @@ exports.handler = function (event, context) {
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
 
-//  const URL = "mongodb://127.0.0.1:27017/test";
-//  return co(function* () {
-//    // MongoDB へ 接続
-//    var db = yield MongoClient.connect(URL);
-//   var collection = db.collection("shops");
-//    var result = yield collection.updateOne(
-//      { name: { $eq: data.name } },
-//      { $set: data },
-//      { upsert: true },
-//      (error, result) => {
-//        // MongoDB 切断
-//        db.close();
-//        callback && callback();
-//      });
-//      process.stdout.write('--- test 8\n');
-//  }).catch((reason) => {
-//    console.error(JSON.stringify(reason));
-//  });
+  const URL = "mongodb://127.0.0.1:27017/test";
+  return co(function* () {
+    // MongoDB へ 接続
+    var db = yield MongoClient.connect(URL);
+   var collection = db.collection("shops");
+    var result = yield collection.updateOne(
+      { name: { $eq: data.name } },
+      { $set: data },
+      { upsert: true },
+      (error, result) => {
+        // MongoDB 切断
+        db.close();
+        callback && callback();
+      });
+      process.stdout.write('--- test 8\n');
+  }).catch((reason) => {
+    console.error(JSON.stringify(reason));
+  });
 
 };
  
