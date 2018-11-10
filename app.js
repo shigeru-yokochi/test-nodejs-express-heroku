@@ -34,12 +34,7 @@ app.use(bodyParser.json());
 
 //app.use('/', routes);
 //app.use('/users', users);
-//app.use("/shop", shop);
-
-app.use("/shop", (function () {
-  var router = express.Router();
-  return router;
-})());
+app.use("/shop", shop);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
