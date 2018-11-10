@@ -15,8 +15,8 @@
    
     // ドキュメント読み込み完了時に呼び出されます。
     var document_onready = function (event) {
-      $("#btn-save").on("click", btnSave_onclick);
-      $("#btn-read").on("click", btnRead_onclick).focus();
+      //$("#btn-save").on("click", btnSave_onclick);
+      //$("#btn-read").on("click", btnRead_onclick).focus();
     };
    
     $(document).ready(document_onready);
