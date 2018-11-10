@@ -9,8 +9,7 @@ var bodyParser = require('body-parser');
 
 //var routes = require('./routes/index');
 //var users = require('./routes/users');
-//var shop = require('./router');
-var input = require('./router/shop/regist/input');
+var shop = require('./router');
 
 var app = express();
 
@@ -33,10 +32,9 @@ app.use(session({ secret: "YOUR SECRET SALT", resave: true, saveUninitialized: t
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//app.use('/', routes);
+app.use('/', routes);
 //app.use('/users', users);
-app.use('/', input);
-//app.use("/shop", shop);
+app.use("/shop", shop);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
