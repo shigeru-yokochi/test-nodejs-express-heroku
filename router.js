@@ -57,32 +57,38 @@ var validate = function (data) {
  * リクエストデータを登録
  */
 var commit = function (data, callback) {
-  var fs = require('fs-extra')
-  fs.mkdirsSync('/app/tmp/');
 
-  const URL = "mongodb://127.0.0.1:27017/test";
-
-  process.stdout.write('--- test 4\n');
-  return co(function* () {
-    // MongoDB へ 接続
-    process.stdout.write('--- test 5\n');
-    var db = yield MongoClient.connect(URL);
-    process.stdout.write('--- test 6\n');    
-    var collection = db.collection("shops");
-    process.stdout.write('--- test 7\n');    
-    var result = yield collection.updateOne(
-      { name: { $eq: data.name } },
-      { $set: data },
-      { upsert: true },
-      (error, result) => {
-        // MongoDB 切断
-        db.close();
-        callback && callback();
-      });
-      process.stdout.write('--- test 8\n');
-  }).catch((reason) => {
-    console.error(JSON.stringify(reason));
+  var AWS = require('aws-sdk');
+  AWS.config.update({region: 'ap-northeast-1'});
+  var dy = new AWS.DynamoDB();
+  var param = {TableName:'twitter'};
+  dy.client.describeTable(param).done(function(resp){
+    console.log(resp.data);
   });
+
+
+
+//  var fs = require('fs-extra')
+//  fs.mkdirsSync('/app/tmp/');
+
+//  const URL = "mongodb://127.0.0.1:27017/test";
+//  return co(function* () {
+//    // MongoDB へ 接続
+//    var db = yield MongoClient.connect(URL);
+//   var collection = db.collection("shops");
+//    var result = yield collection.updateOne(
+//      { name: { $eq: data.name } },
+//      { $set: data },
+//      { upsert: true },
+//      (error, result) => {
+//        // MongoDB 切断
+//        db.close();
+//        callback && callback();
+//      });
+//      process.stdout.write('--- test 8\n');
+//  }).catch((reason) => {
+//    console.error(JSON.stringify(reason));
+//  });
 };
  
 /**
