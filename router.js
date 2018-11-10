@@ -58,6 +58,7 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
+  /*
   console.log('--- 1\n');
   var AWS = require("aws-sdk");
   console.log('--- 2\n');
@@ -84,6 +85,8 @@ var commit = function (data, callback) {
       }
   });
  console.log('--- 23\n');
+*/
+
 
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
