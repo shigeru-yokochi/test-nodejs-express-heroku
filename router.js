@@ -58,13 +58,29 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
-  var AWS = require('aws-sdk');
-  AWS.config.update({region: 'ap-northeast-1'});
-  var dy = new AWS.DynamoDB();
-  var param = {TableName:'test'};
-  dy.client.describeTable(param).done(function(resp){
-    console.log(resp.data);
-  });
+  var aws = require('aws-sdk');
+var docClient = new aws.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
+
+exports.handler = function (event, context) {
+  var params = {
+    TableName : 'test',
+    Key: {
+        'key': '1'
+    }
+  };
+
+   docClient.get(params, function(err, data) {
+        if (err){
+            console.log(err);
+            context.succeed();
+        } else {
+            console.log(data);
+            context.succeed();
+        }
+    });
+  };  
+
+
 
 
 
