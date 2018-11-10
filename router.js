@@ -172,9 +172,9 @@ router.post("/regist/complete", function (request, response) {
  
   process.stdout.write('--- 1\n');
   // 秘密文字 と トークン の組み合わせが正しいか検証
-  if (tokens.verify(secret, token) === false) {
-    throw new Error("Invalid Token");
-  }
+//  if (tokens.verify(secret, token) === false) {
+//    throw new Error("Invalid Token");
+//  }
   process.stdout.write('--- 2\n');
   // 入力データを取得
   var data = extract(request);
