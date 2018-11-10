@@ -65,7 +65,7 @@ var commit = function (data, callback) {
 /**
  * GET: /shop/regist/input
  */
-router.get("/regist/input", function (request, response) {
+router.post("/regist/input", function (request, response) {
   // 新規に 秘密文字 と トークン を生成
   var secret = tokens.secretSync();
   var token = tokens.create(secret);
@@ -77,8 +77,7 @@ router.get("/regist/input", function (request, response) {
   response.cookie("_csrf", token);
  
   // 入力画面の表示
-  var data = extract(request);
-  response.render("./shop/regist/input.ejs",data);
+  response.render("./shop/regist/input.ejs");
 });
  
 /**
