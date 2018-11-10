@@ -138,7 +138,7 @@ router.get("/regist/input", function (request, response) {
   response.cookie("_csrf", token);
  
   // 入力画面の表示
-  response.render("./regist/input.ejs");
+  response.render("./shop/regist/input.ejs");
 });
  
 /**
@@ -155,7 +155,7 @@ router.post("/regist/input", function (request, response) {
   process.stdout.write('--- test 123\n');
 
   // 入力画面の再表示
-  response.render("./regist/input.ejs", data);
+  response.render("./shop/regist/input.ejs", data);
 });
  
 /**
@@ -167,10 +167,10 @@ router.post("/regist/confirm", function (request, response) {
  
   // 入力データの検証
   if (validate(data) === false) {
-    return response.render("./regist/input.ejs", data);
+    return response.render("./shop/regist/input.ejs", data);
   }
  
-  response.render("./regist/confirm.ejs", data);
+  response.render("./shop/regist/confirm.ejs", data);
 });
  
 /**
@@ -189,7 +189,7 @@ router.post("/regist/complete", function (request, response) {
   var data = extract(request);
   // 入力データの検証
   if (validate(data) === false) {
-    return response.render("./regist/input.ejs", data);
+    return response.render("./shop/regist/input.ejs", data);
   }
 
   // 登録処理
@@ -209,7 +209,7 @@ router.post("/regist/complete", function (request, response) {
  * GET: /regist/complete
  */
 router.get("/regist/complete", function (request, response) {
-  response.render("./regist/complete.ejs");
+  response.render("./shop/regist/complete.ejs");
 });
  
 module.exports = router;
