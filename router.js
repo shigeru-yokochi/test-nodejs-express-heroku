@@ -61,7 +61,7 @@ var commit = function (data, callback) {
 
 
   var AWS = require("aws-sdk");
-
+  AWS.config.loadFromPath('~/.aws/config');
   AWS.config.update({
     region: "ap-northeast-1",
     endpoint: "http://localhost:8000"
