@@ -87,23 +87,12 @@ router.post("/regist/input", function (request, response) {
   // 入力データを取得
   var data = extract(request);
 
-  
-  // 入力データの検証
-  if (validate(data) === false) {
-    return response.render("./shop/regist/input.ejs", data);
+  data = {
+    name: "12345"
   }
- 
-  response.render("./shop/regist/confirm.ejs", data);
-
-
-
-
-//  data = {
-//    name: "12345"
-//  }
 
   // 入力画面の再表示
-//  response.render("./shop/regist/input.ejs", data);
+  response.render("./shop/regist/input.ejs", data);
 });
  
 /**
