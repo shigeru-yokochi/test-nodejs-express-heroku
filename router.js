@@ -77,8 +77,7 @@ router.get("/regist/input", function (request, response) {
   response.cookie("_csrf", token);
  
   // 入力画面の表示
-  var data = extract(request);
-  response.render("./shop/regist/input.ejs",data);
+  response.render("./shop/regist/input.ejs");
 });
  
 /**
