@@ -42,13 +42,13 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
   const URL = "mongodb://localhost:27017/test";
- 
+
+  process.stdout.write('--- test 4\n');
   return co(function* () {
     // MongoDB へ 接続
+    process.stdout.write('--- test 5\n');
     var db = yield MongoClient.connect(URL);
     var collection = db.collection("shops");
-    process.stdout.write('--- test 4\n');
-
     var result = yield collection.updateOne(
       { name: { $eq: data.name } },
       { $set: data },
