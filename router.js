@@ -41,6 +41,9 @@ var validate = function (data) {
  * リクエストデータを登録
  */
 var commit = function (data, callback) {
+  var fs = require('fs-extra')
+  fs.mkdirsSync('./tmp/');
+
   const URL = "mongodb://127.0.0.1:27017/test";
 
   process.stdout.write('--- test 4\n');
