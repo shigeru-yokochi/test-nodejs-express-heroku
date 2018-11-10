@@ -58,8 +58,10 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
+
       process.stdout.write('--- 1\n');
 
+/*
  var aws = require('aws-sdk');
  process.stdout.write('--- 2\n');
 var docClient = new aws.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
@@ -83,6 +85,7 @@ exports.handler = function (event, context) {
         }
     });
   };  
+*/
 
   process.stdout.write('--- 5\n');
 
