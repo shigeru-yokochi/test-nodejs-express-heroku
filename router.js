@@ -61,7 +61,7 @@ var commit = function (data, callback) {
   console.log('--- 1\n');
   var AWS = require("aws-sdk");
   console.log('--- 2\n');
-  AWS.config.loadFromPath("~/.aws/credentials");
+  AWS.config.loadFromPath("./credentials");
   console.log('--- 3\n');
   AWS.config.update({
     region: "ap-northeast-1",
