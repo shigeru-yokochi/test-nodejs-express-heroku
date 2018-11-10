@@ -59,8 +59,6 @@ var validate = function (data) {
 var commit = function (data, callback) {
 
 
-      process.stdout.write('--- 1\n');
-
 /*
  var aws = require('aws-sdk');
  process.stdout.write('--- 2\n');
@@ -87,9 +85,6 @@ exports.handler = function (event, context) {
   };  
 */
 
-  process.stdout.write('--- 5\n');
-
-
 
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
@@ -108,7 +103,6 @@ exports.handler = function (event, context) {
         db.close();
         callback && callback();
       });
-      process.stdout.write('--- test 8\n');
   }).catch((reason) => {
     console.error(JSON.stringify(reason));
   });
