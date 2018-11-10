@@ -15,7 +15,7 @@ jobs:
           paths:
             - node_modules
       - run:
-          command: npm install express-session co mongodb csrf ejs jquery cookie fs-extra
+          command: npm install express-session co mongodb csrf ejs jquery cookie fs-extra aws-sdk
       - run:
           command: npm install --save-dev jest
       - run:
