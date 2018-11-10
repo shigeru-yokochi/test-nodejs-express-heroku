@@ -58,15 +58,16 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
-
-
+  console.log('--- 1\n');
   var AWS = require("aws-sdk");
-  AWS.config.loadFromPath('~/.aws/credentials');
+  console.log('--- 2\n');
+  AWS.config.loadFromPath("~/.aws/credentials");
+  console.log('--- 3\n');
   AWS.config.update({
     region: "ap-northeast-1",
     endpoint: "http://localhost:8000"
   });
-  
+  console.log('--- 4\n');
   var docClient = new AWS.DynamoDB.DocumentClient();
   var params = {
       TableName: "test",
@@ -74,7 +75,7 @@ var commit = function (data, callback) {
           "id": "1"
       }
   };
-  
+  console.log('--- 5\n');
   docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
