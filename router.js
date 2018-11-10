@@ -89,7 +89,8 @@ exports.handler = function (event, context) {
 //  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
 
-  const URL = "mongodb://127.0.0.1:27017/test";
+/*
+  const URL = "mongodb://localhost:27017/test";
   return co(function* () {
     // MongoDB へ 接続
     var db = yield MongoClient.connect(URL);
@@ -106,6 +107,8 @@ exports.handler = function (event, context) {
   }).catch((reason) => {
     console.error(JSON.stringify(reason));
   });
+*/
+
 
 };
  
@@ -182,6 +185,8 @@ router.post("/regist/complete", function (request, response) {
 
 
   // 登録処理
+
+  /*
   commit(data).then(() => {
     // 使用済み 秘密文字 と トークン の無効化
     delete request.session._csrf;
@@ -190,6 +195,14 @@ router.post("/regist/complete", function (request, response) {
     // 完了画面へリダイレクト
     response.redirect("/shop/regist/complete");
   });
+*/
+
+delete request.session._csrf;
+response.clearCookie("_csrf");
+// 完了画面へリダイレクト
+response.redirect("/shop/regist/complete");
+
+
 });
  
 /**
