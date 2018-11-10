@@ -10,8 +10,11 @@ var tokens = new Tokens();
 var extract = function (request) {
   return {
     name: request.body.name,
-    location: request.body.location,
+    age: request.body.age,
+    sex: request.body.sex,
     tel: request.body.tel,
+    zipcode: request.body.zipcode,
+    location: request.body.location,
     _csrf: request.body._csrf
   };
 };
@@ -23,16 +26,29 @@ var validate = function (data) {
   var errors = data.errors = [];
  
   if (!data.name) {
-    errors[errors.length] = "会社名を指定してください。";
+    errors[errors.length] = "氏名を指定してください。";
   }
  
-  if (!data.location) {
-    errors[errors.length] = "所在地を指定してください。";
+  if (!data.age) {
+    errors[errors.length] = "年齢を指定してください。";
   }
- 
+
+  if (!data.sex) {
+    errors[errors.length] = "性別を指定してください。";
+  }
+
   if (!data.tel) {
     errors[errors.length] = "電話番号を指定してください。";
   }
+ 
+  if (!data.zipcode) {
+    errors[errors.length] = "郵便番号を指定してください。";
+  }
+
+  if (!data.location) {
+    errors[errors.length] = "住所を指定してください。";
+  }
+ 
  
   return errors.length === 0;
 };
