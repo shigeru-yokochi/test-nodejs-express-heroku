@@ -60,27 +60,28 @@ var commit = function (data, callback) {
 
 
 
- var AWS = require('aws-sdk');
- var dynamodb = new AWS.DynamoDB({region: 'ap-northeast-1'});
- var params = {
-  Limit: 100
-};
-process.stdout.write('--- 1\n');
+  var AWS = require("aws-sdk");
 
-
-dynamodb.listTables(params, function(err, data) {
-  if (err) {
-      process.stdout.write('--- err\n');
-          console.log(err, err.stack); 
-  } else {
-    process.stdout.write('--- OK\n'); 
-      console.log(data);
-  }
-});
-
- process.stdout.write('--- 2\n');
- console.log('--- 22\n');
- console.log(data);
+  AWS.config.update({
+    region: "ap-northeast-1",
+    endpoint: "http://localhost:8000"
+  });
+  
+  var docClient = new AWS.DynamoDB.DocumentClient();
+  var params = {
+      TableName: "test",
+      Key:{
+          "id": "1"
+      }
+  };
+  
+  docClient.get(params, function(err, data) {
+      if (err) {
+          console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+      } else {
+          console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
+      }
+  });
  console.log('--- 23\n');
 
 //  var fs = require('fs-extra')
