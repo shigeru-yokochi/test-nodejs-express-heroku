@@ -113,15 +113,6 @@ var commit = function (data, callback) {
 
 };
 
-/**
- * GET: /
- */
-router.get("/", function (request, response) {
-   // リダイレクト
-   response.redirect("/shop/regist/input");
-
-});
-
 
 /**
  * GET: /shop/regist/input
