@@ -65,7 +65,7 @@ var commit = function (data, callback) {
 /**
  * GET: /shop/regist/input
  */
-router.post("/regist/input", function (request, response) {
+router.get("/regist/input", function (request, response) {
   // 新規に 秘密文字 と トークン を生成
   var secret = tokens.secretSync();
   var token = tokens.create(secret);
