@@ -91,20 +91,18 @@ console.log('--- fs 1\n');
   var fs = require('fs-extra')
   console.log('--- fs 2\n');
 //  fs.mkdirsSync('/app/tmp/');
-var data = JSON.parse({
-  message: "Hello World !"
-});
  
 console.log('--- fs 3\n');
 
 fs.writeFile("./test.json", data, "utf8", (error) => {
   if (error) {
-    console.log(JSON.stringify(error));
+    console.log('*** fs err\n');
+    console.log(data);
   }
 });
 
-
-console.log('--- fs 4\n');
+console.log(data);
+console.log('--- fs OK\n');
 
 
   const URL = "mongodb://localhost:27017/test";
