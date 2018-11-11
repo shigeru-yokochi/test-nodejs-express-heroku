@@ -182,6 +182,11 @@ router.post("/regist/input", function (request, response) {
     }
   });
 
+
+  console.log('--- fs read\n');
+  console.log(data);
+
+
  /* 
   data = {
     name: "未作成1",
