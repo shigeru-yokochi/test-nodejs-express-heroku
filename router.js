@@ -88,7 +88,7 @@ var commit = function (data, callback) {
 */
 
 console.log('--- fs 1\n');
-  var fs = require('fs-extra');
+  var fs = require('fs');
   console.log('--- fs 2\n');
 //  fs.mkdirsSync('/app/tmp/');
  
