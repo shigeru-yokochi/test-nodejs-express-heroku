@@ -175,7 +175,7 @@ router.post("/regist/input", function (request, response) {
   var data = extract(request);
   var fs = require('fs-extra');
 
-  fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
+  fs.readFile("/tmp/dat.txt", "utf8", (error, data) => {
     if (error) {
       console.log('*** fs read err\n');
       console.log(data);
