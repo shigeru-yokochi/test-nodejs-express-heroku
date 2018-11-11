@@ -88,8 +88,19 @@ var commit = function (data, callback) {
 */
 
 
-//  var fs = require('fs-extra')
+  var fs = require('fs-extra')
 //  fs.mkdirsSync('/app/tmp/');
+var data = JSON.parse({
+  message: "Hello World !"
+});
+ 
+fs.writeFile("./test.json", data, "utf8", (error) => {
+  if (error) {
+    console.log(JSON.stringify(error));
+  }
+});
+
+
 
 
   const URL = "mongodb://localhost:27017/test";
@@ -149,12 +160,12 @@ router.post("/regist/input", function (request, response) {
   var data = extract(request);
 
   data = {
-    name: "1",
-    age: "2",
-    sex: "3",
-    tel: "4",
-    zipcode: "5",
-    location: "6"
+    name: "未作成1",
+    age: "未作成2",
+    sex: "未作成3",
+    tel: "未作成4",
+    zipcode: "未作成5",
+    location: "未作成6"
   }
 
   process.stdout.write('--- test 123\n');
