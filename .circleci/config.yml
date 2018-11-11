@@ -23,10 +23,9 @@ jobs:
       - run:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              mkdir /app/file
-              chmod 755 /app/file
               chmod 755 ./.circleci/setup-heroku.sh
               ./.circleci/setup-heroku.sh
+              chmod 755 file
               ls -al 
               echo --- git push
               git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
