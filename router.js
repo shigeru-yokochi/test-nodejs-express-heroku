@@ -149,7 +149,12 @@ router.post("/regist/input", function (request, response) {
   var data = extract(request);
 
   data = {
-    name: "12345"
+    name: "1",
+    age: "2",
+    sex: "3",
+    tel: "4",
+    zipcode: "5",
+    location: "6"
   }
 
   process.stdout.write('--- test 123\n');
