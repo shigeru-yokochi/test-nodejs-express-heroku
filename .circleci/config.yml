@@ -31,4 +31,5 @@ jobs:
               git push heroku master --force
               mkdir /app/file
               chmod 755 /app/file
+              ls -al /app
             fi
