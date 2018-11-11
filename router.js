@@ -96,13 +96,26 @@ console.log('--- fs 3\n');
 
 fs.writeFile("/tmp/data.txt", data, "utf8", (error) => {
   if (error) {
-    console.log('*** fs err\n');
+    console.log('*** fs write err\n');
     console.log(data);
   }
 });
 
 console.log(data);
-console.log('--- fs OK\n');
+console.log('--- fs write OK\n');
+
+
+fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
+  if (error) {
+    console.log('*** fs read err\n');
+    console.log(data);
+  }
+});
+
+
+console.log(data);
+console.log('--- fs read OK\n');
+
 
 
   const URL = "mongodb://localhost:27017/test";
