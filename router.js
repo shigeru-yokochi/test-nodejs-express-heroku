@@ -200,7 +200,7 @@ router.post("/regist/input", function (request, response) {
   console.log(data);
 
 
- /* 
+  
   data = {
     name: "未作成1",
     age: "未作成2",
@@ -209,7 +209,6 @@ router.post("/regist/input", function (request, response) {
     zipcode: "未作成5",
     location: "未作成6"
   }
-*/
 
 
   // 入力画面の再表示
