@@ -88,7 +88,7 @@ var commit = function (data, callback) {
 */
 
 console.log('--- fs 1\n');
-  var fs = require('fs-extra')
+  var fs = require('fs-extra');
   console.log('--- fs 2\n');
 //  fs.mkdirsSync('/app/tmp/');
  
@@ -173,7 +173,16 @@ router.get("/regist/input", function (request, response) {
 router.post("/regist/input", function (request, response) {
   // 入力データを取得
   var data = extract(request);
+  var fs = require('fs-extra');
 
+  fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
+    if (error) {
+      console.log('*** fs read err\n');
+      console.log(data);
+    }
+  });
+
+ /* 
   data = {
     name: "未作成1",
     age: "未作成2",
@@ -182,6 +191,7 @@ router.post("/regist/input", function (request, response) {
     zipcode: "未作成5",
     location: "未作成6"
   }
+*/
 
 
   // 入力画面の再表示
