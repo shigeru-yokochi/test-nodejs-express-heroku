@@ -105,6 +105,19 @@ console.log(data);
 console.log('--- fs write OK\n');
 
 
+
+data = {
+  name: "1",
+  age: "2",
+  sex: "3",
+  tel: "4",
+  zipcode: "5",
+  location: "6"
+}
+
+
+
+
 fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
   if (error) {
     console.log('*** fs read err\n');
@@ -175,17 +188,12 @@ router.post("/regist/input", function (request, response) {
   var data = extract(request);
   var fs = require('fs-extra');
 
-
-  data = fs.readFileSync("/tmp/data.txt", 'utf8');
-/*
   fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
     if (error) {
       console.log('*** fs read err\n');
       console.log(data);
     }
   });
-*/
-
 
   console.log('--- fs read\n');
   console.log(data);
