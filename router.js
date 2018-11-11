@@ -123,6 +123,7 @@ fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
     console.log('*** fs read err\n');
     console.log(data);
   }
+ console.log(data);
 });
 
 
