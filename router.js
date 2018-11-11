@@ -87,13 +87,16 @@ var commit = function (data, callback) {
  console.log('--- 23\n');
 */
 
-
+console.log('--- fs 1\n');
   var fs = require('fs-extra')
+  console.log('--- fs 2\n');
 //  fs.mkdirsSync('/app/tmp/');
 var data = JSON.parse({
   message: "Hello World !"
 });
  
+console.log('--- fs 3\n');
+
 fs.writeFile("./test.json", data, "utf8", (error) => {
   if (error) {
     console.log(JSON.stringify(error));
@@ -101,6 +104,7 @@ fs.writeFile("./test.json", data, "utf8", (error) => {
 });
 
 
+console.log('--- fs 4\n');
 
 
   const URL = "mongodb://localhost:27017/test";
@@ -168,7 +172,6 @@ router.post("/regist/input", function (request, response) {
     location: "未作成6"
   }
 
-  process.stdout.write('--- test 123\n');
 
   // 入力画面の再表示
   response.render("./shop/regist/input.ejs", data);
