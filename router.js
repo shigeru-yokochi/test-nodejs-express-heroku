@@ -187,7 +187,7 @@ router.get("/regist/input", function (request, response) {
 router.post("/regist/input", function (request, response) {
   // 入力データを取得
   var data = extract(request);
-  var fs = require('fs-extra');
+  var fs = require('fs');
 
   fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
     if (error) {
