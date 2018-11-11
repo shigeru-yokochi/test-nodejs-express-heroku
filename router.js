@@ -172,16 +172,19 @@ router.get("/regist/input", function (request, response) {
  */
 router.post("/regist/input", function (request, response) {
   // 入力データを取得
-//  var data = extract(request);
-  var data;
+  var data = extract(request);
   var fs = require('fs-extra');
 
+
+  data = fs.readFileSync("/tmp/data.txt", 'utf8');
+/*
   fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
     if (error) {
       console.log('*** fs read err\n');
       console.log(data);
     }
   });
+*/
 
 
   console.log('--- fs read\n');
