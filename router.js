@@ -94,7 +94,7 @@ console.log('--- fs 1\n');
  
 console.log('--- fs 3\n');
 
-fs.writeFile("./test.json", data, "utf8", (error) => {
+fs.writeFile("/tmp/test.txt", data, "utf8", (error) => {
   if (error) {
     console.log('*** fs err\n');
     console.log(data);
