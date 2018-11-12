@@ -31,5 +31,6 @@ jobs:
               git remote
               echo --- heroku push
               git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
+              commit -a -m "add"
               git push heroku master
             fi
