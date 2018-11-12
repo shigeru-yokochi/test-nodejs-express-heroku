@@ -59,24 +59,29 @@ var validate = function (data) {
 var commit = function (data, callback) {
 
 //--- DynamoDB
-
+  console.log('--- DynamoDB 1\n');
   var AWS = require("aws-sdk");
+  console.log('--- DynamoDB 2\n');
   AWS.config.loadFromPath("./credentials");
+  console.log('--- DynamoDB 3\n');
   var docClient = new AWS.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
+  console.log('--- DynamoDB 4\n');
   var params = {
       TableName: "test",
       Key:{
           "id": "1"
       }
   };
-  docClient.get(params, function(err, data) {
+  console.log('--- DynamoDB 5\n');
+   docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
       } else {
           console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
       }
   });
- 
+  console.log('--- DynamoDB 6\n');
+
 
 
 //--- fs
