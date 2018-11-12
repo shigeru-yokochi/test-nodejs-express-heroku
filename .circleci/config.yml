@@ -27,8 +27,8 @@ jobs:
               ./.circleci/setup-heroku.sh
               pwd
               ls -al 
+              git branch
               echo --- heroku push
               git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
-              git commit -a
               git push heroku master --force
             fi
