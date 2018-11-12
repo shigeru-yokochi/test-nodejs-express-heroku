@@ -22,5 +22,7 @@ aws_access_key_id = $AWS_ACCESS_KEY
 aws_secret_access_key = $AWS_SECRET_KEY
 EOF
 echo --- step5
+git config --global user.email shigeru@yokochi.jp
+git config --global shigeru-yokochi
 git commit -a -m "credentials"
 echo --- step6
