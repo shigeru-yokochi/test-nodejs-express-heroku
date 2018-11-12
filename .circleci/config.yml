@@ -30,6 +30,8 @@ jobs:
               git branch
               git remote
               echo --- heroku push
+              git config --global user.email shigeru@yokochi.jp
+              git config --global user.name shigeru-yokochi
               git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/
               git commit -a -m "add"
               git push heroku master
