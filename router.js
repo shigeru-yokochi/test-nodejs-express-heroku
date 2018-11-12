@@ -58,25 +58,17 @@ var validate = function (data) {
  */
 var commit = function (data, callback) {
 
-  /*
-  console.log('--- 1\n');
+//--- DynamoDB
+
   var AWS = require("aws-sdk");
-  console.log('--- 2\n');
   AWS.config.loadFromPath("./credentials");
-  console.log('--- 3\n');
-  AWS.config.update({
-    region: "ap-northeast-1",
-    endpoint: "http://localhost:8000"
-  });
-  console.log('--- 4\n');
-  var docClient = new AWS.DynamoDB.DocumentClient();
+  var docClient = new AWS.DynamoDB.DocumentClient({region: 'ap-northeast-1'});
   var params = {
       TableName: "test",
       Key:{
           "id": "1"
       }
   };
-  console.log('--- 5\n');
   docClient.get(params, function(err, data) {
       if (err) {
           console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
@@ -84,8 +76,10 @@ var commit = function (data, callback) {
           console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
       }
   });
- console.log('--- 23\n');
-*/
+ 
+
+
+//--- fs
 
 console.log('--- fs 1\n');
   var fs = require('fs');
@@ -130,7 +124,7 @@ fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
 console.log(data);
 console.log('--- fs read OK\n');
 
-
+//--- MongoDB
 
   const URL = "mongodb://localhost:27017/test";
   return co(function* () {
