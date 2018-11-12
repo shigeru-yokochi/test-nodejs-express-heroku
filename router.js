@@ -59,6 +59,7 @@ var validate = function (data) {
 var commit = function (data, callback) {
 
 //--- DynamoDB
+/*
   console.log('--- DynamoDB 1\n');
   var AWS = require("aws-sdk");
   console.log('--- DynamoDB 2\n');
@@ -82,7 +83,7 @@ var commit = function (data, callback) {
   });
   console.log('--- DynamoDB 6\n');
 
-
+*/
 
 //--- fs
 
