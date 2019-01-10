@@ -118,7 +118,7 @@ data = {
 
 
 
-fs.readFile("/tmp/data.txt", "utf8", (error, data) => {
+fs.readFile("/tmp/data.txt", "utf8", function (error, data) => {
   if (error) {
     console.log('*** fs read err\n');
     console.log(data);
