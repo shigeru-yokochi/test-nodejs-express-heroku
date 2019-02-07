@@ -94,7 +94,7 @@ console.log('--- fs 1\n');
  
 console.log('--- fs 3\n');
 
-fs.writeFile("/tmp/data.txt", data, "utf8", (error) => {
+fs.writeFile("/app/tmp.txt", data, "utf8", (error) => {
   if (error) {
     console.log('*** fs write err\n');
     console.log(data);
@@ -118,7 +118,7 @@ data = {
 
 
 
-fs.readFile("/tmp/data.txt", "utf8", function (error, data) {
+fs.readFile("/app/tmp.txt", "utf8", function (error, data) {
   if (error) {
     console.log('*** fs read err\n');
     console.log(data);
