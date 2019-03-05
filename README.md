@@ -9,6 +9,9 @@ GitHub(master)にマージするとCircleCiによりherokuへデプロイされ�
 
 https://immense-gorge-45175.herokuapp.com
 
+## cli login
+heroku login --interactive
+
 ## log
 heroku logs  -t -a immense-gorge-45175
 
